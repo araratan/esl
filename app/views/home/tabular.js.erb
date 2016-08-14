@@ -7,7 +7,3 @@ $('li > a').click(function() {
     $("#contents").html("<%= escape_javascript(render 'lesson') %>");
   }
 });
-
-$('td > a').click(function() {
-  $("#contents").append("<%= escape_javascript(render 'book') %>");
-});

@@ -8,8 +8,8 @@ class BooksController < ApplicationController
 
     unless subscription.to_i == subcripted_cnt.to_i
       Lesson.create!(member_id: member_id, schedule_id: schedule_id)
-    end
 
-    redirect_to root_path
+    end
+    redirect_to tabular_path
   end
 end

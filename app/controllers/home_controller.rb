@@ -8,7 +8,12 @@ class HomeController < ApplicationController
   end
 
   def tabular
-    my_lessons(member_id)
+    if params[:tab] == 'book'
+
+    else
+      my_lessons(member_id)
+    end
+
   end
 
   private

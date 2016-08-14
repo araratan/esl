@@ -17,7 +17,7 @@
         <% teacher.schedules.each do |schedule| %>
           <td><% unless schedule.schedule_date.nil? %>
               <% if schedule.lessons.count == 0 %>
-                <%= link_to "Open", {controller: 'books', action: 'book', schedule_id: schedule.id, schedule_date: schedule.schedule_date }, class: 'btn-warning btn-md', remote: true %>
+                <%= link_to "Open", {controller: 'books', action: 'book', schedule_id: schedule.id, schedule_date: schedule.schedule_date }, class: 'btn-warning btn-md' %>
               <% else %>
                 <%= link_to "Reserved", "#", class: 'btn-primary btn-md' %>
               <% end %>
