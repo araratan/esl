@@ -25,9 +25,6 @@ class HomeController < ApplicationController
             schedule_date:  [lesson.schedule.schedule_date.strftime("%b. %d, %Y"), ([teacher.from_time.strftime("%H:%M"), teacher.to_time.strftime("%H:%M")].join(' - '))].join(' ')
         }
       end
-    end
-
-    def books(member_id)
-
+      @lessons = @lessons.sort_by{ |h| h[:schedule_date].to_datetime}
     end
 end

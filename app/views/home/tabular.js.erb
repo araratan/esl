@@ -1,4 +1,6 @@
-$('.tabs').click(function() {
+$('li > a').click(function() {
+  $('li').removeClass();
+  $(this).parent().addClass('active');
   if(this.id == 'book'){
     $("#contents").html("<%= escape_javascript(render 'book') %>");
   }else{

@@ -17,11 +17,10 @@ ActiveRecord::Schema.define(version: 20160814100214) do
   enable_extension "plpgsql"
 
   create_table "lessons", force: :cascade do |t|
-    t.time     "schedule_time"
     t.integer  "member_id"
     t.integer  "schedule_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "lessons", ["member_id"], name: "index_lessons_on_member_id", using: :btree
