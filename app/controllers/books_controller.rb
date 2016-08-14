@@ -10,6 +10,6 @@ class BooksController < ApplicationController
       Lesson.create!(member_id: member_id, schedule_id: schedule_id)
     end
 
-    redirect_to tabular_path
+
   end
 end

@@ -1,5 +1,13 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe Member, type: :model do
-  it { should belong_to(:user) }
+describe Member do
+  it "should return member_id" do
+    current_user_id = 1
+    member = Member.member_id(current_user_id)
+    if member
+      member.should eq(1)
+    else
+      false
+    end
+  end
 end

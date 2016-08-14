@@ -1,5 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Subscription, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Subscription do
+  before(:each) do
+    @user_id = 1
+  end
+
+  it "check if member has subscribe" do
+    subscribe = Subscription.subscribed?(@user_id)
+    expect(subscribe).to be_falsey
+  end
 end
