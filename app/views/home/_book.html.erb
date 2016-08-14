@@ -1,0 +1,31 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>List of Teachers</th>
+      <th>Time</th>
+      <th>01-08</th>
+      <th>02-08</th>
+      <th>03-08</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% Teacher.all.each do |teacher| %>
+      <tr>
+        <td><%= Teacher.fullname(teacher.id) %></td>
+        <td><%= teacher.from_time.strftime("%H:%M") %> - <%= teacher.to_time.strftime("%H:%M") %></td>
+        <% teacher.schedules.each do |schedule| %>
+          <td><% unless schedule.schedule_date.nil? %>
+              <% if schedule.lessons.count == 0 %>
+                <%= link_to "Open", {controller: 'books', action: 'book', schedule_id: schedule.id, schedule_date: schedule.schedule_date }, class: 'btn-warning btn-md' %>
+              <% else %>
+                <%= link_to "Reserved", "#", class: 'btn-primary btn-md' %>
+              <% end %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

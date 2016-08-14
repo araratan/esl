@@ -11,10 +11,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814005326) do
+ActiveRecord::Schema.define(version: 20160814100214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lessons", force: :cascade do |t|
+    t.time     "schedule_time"
+    t.integer  "member_id"
+    t.integer  "schedule_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "lessons", ["member_id"], name: "index_lessons_on_member_id", using: :btree
+  add_index "lessons", ["schedule_id"], name: "index_lessons_on_schedule_id", using: :btree
+
+  create_table "members", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "members", ["user_id"], name: "index_members_on_user_id", using: :btree
+
+  create_table "schedules", force: :cascade do |t|
+    t.datetime "schedule_date"
+    t.integer  "teacher_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "schedules", ["teacher_id"], name: "index_schedules_on_teacher_id", using: :btree
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "lesson_item_per_day"
+    t.integer  "member_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "subscriptions", ["member_id"], name: "index_subscriptions_on_member_id", using: :btree
+
+  create_table "teachers", force: :cascade do |t|
+    t.time     "from_time"
+    t.time     "to_time"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "teachers", ["user_id"], name: "index_teachers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,4 +83,10 @@ ActiveRecord::Schema.define(version: 20160814005326) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "lessons", "members"
+  add_foreign_key "lessons", "schedules"
+  add_foreign_key "members", "users"
+  add_foreign_key "schedules", "teachers"
+  add_foreign_key "subscriptions", "members"
+  add_foreign_key "teachers", "users"
 end

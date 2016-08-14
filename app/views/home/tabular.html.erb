@@ -1,0 +1,10 @@
+<div class="container">
+  <h3>Tabs</h3>
+  <ul id="ul" class="nav nav-tabs">
+    <li class="active"><%= link_to 'My Lesson', '#', class: 'tabs', id: 'lesson', remote: true %></li>
+    <li><%= link_to 'Books', '#', class: 'tabs', id: 'book', remote: true %></li>
+    <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+  </ul>
+  <br>
+  <div id='contents'><%= render 'lesson' %></div>
+</div>

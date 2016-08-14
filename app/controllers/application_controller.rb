@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
+  def member_id
+    Member.member_id(current_user.id)
+  end
+
   protected
 
   def configure_devise_permitted_parameters

@@ -1,2 +1,10 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container">
+  <h3>Select Subscription</h3>
+  <div class="row">
+    <% 1.upto(3).each do |i| %>
+      <div class="col-sm-4">
+        <%= link_to "#{i} Lesson / Day", {:controller => "subscriptions", :action => "subscribe", :detail => i }, class: "thumbnail" %>
+      </div>
+    <% end %>
+  </div>
+</div>

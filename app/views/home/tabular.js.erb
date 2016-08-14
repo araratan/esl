@@ -1,0 +1,7 @@
+$('.tabs').click(function() {
+  if(this.id == 'book'){
+    $("#contents").html("<%= escape_javascript(render 'book') %>");
+  }else{
+    $("#contents").html("<%= escape_javascript(render 'lesson') %>");
+  }
+});

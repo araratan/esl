@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="aa col-lg-12">
+    <% @lessons.each do |lesson| %>
+      <div class="well well-sm"><span><%= lesson[:fullname] %></span> <%= lesson[:schedule_date] %></div>
+    <% end %>
+  </div>
+</div>
