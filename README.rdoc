@@ -1,28 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
 * System dependencies
+  - ruby 2.1 or later
+  - rails 4
+  - PosgreSQL
 
 * Configuration
+  - rake db:create
+  - rake db:migrate
+  - rake db:seed
+  
+  For TTD:
+  - rake db:migrate RAILS_ENV=test
+  - rake db:test:prepare
+  - rake db:seed RAILS_ENV=test
 
-* Database creation
+* How to run:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Test Driven:
+  - rspec spec
+  
+The Application:
+  - Open a terminal.
+  - Type rails s
+  - Open a browser and type localhost:3000
