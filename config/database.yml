@@ -20,10 +20,13 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  host: localhost
+  username: postgres
+  password:
 
 development:
   <<: *default
-  database: esl_development
+  database: esl
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: esl_production
+  database: esl
   username: esl
   password: <%= ENV['ESL_DATABASE_PASSWORD'] %>
