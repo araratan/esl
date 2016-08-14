@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_action :member_id
 
   def index
-    if Subscription.subscribed?(current_user.id)
+    unless Subscription.find_by_member_id(member_id).nil?
       redirect_to tabular_path
     end
   end
