@@ -1,26 +1,32 @@
 == README
 
-* System dependencies
+* Need to install
   - ruby 2.1 or later
   - rails 4
   - PosgreSQL
+  Install all gems:
+  - Open a terminal.
+  - bundle install
 
 * Configuration
+  Database used is PostgreSQL. Please check db/database.yml and change username value to your database username.
+
+  Create local database:
   - rake db:create
   - rake db:migrate
   - rake db:seed
   
-  For TTD:
+  Create test database:
   - rake db:migrate RAILS_ENV=test
   - rake db:test:prepare
   - rake db:seed RAILS_ENV=test
 
 * How to run:
 
-Test Driven:
+  Test Driven:
   - rspec spec
   
-The Application:
+  The Application:
   - Open a terminal.
   - Type rails s
   - Open a browser and type localhost:3000
